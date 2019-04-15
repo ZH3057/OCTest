@@ -33,7 +33,19 @@
     }
      */
     
+    /*
     UILabel *dispalyLabel = [[UILabel alloc] init];
+    dispalyLabel.text = @"显示";
+    dispalyLabel.opaque = YES;
+    dispalyLabel.layer.masksToBounds = YES;
+    //dispalyLabel.layer.cornerRadius = 10;
+    dispalyLabel.backgroundColor = UIColor.grayColor;
+    dispalyLabel.font = [UIFont systemFontOfSize:30];
+    dispalyLabel.textColor = UIColor.blackColor;
+    dispalyLabel.textAlignment = NSTextAlignmentCenter;
+    dispalyLabel.frame = CGRectMake(10, 100, 300, 100);
+    [self.view addSubview:dispalyLabel];
+     */
 }
 
 
