@@ -17,6 +17,7 @@
 		BF694C212264336300B4DD58 /* OCTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C202264336300B4DD58 /* OCTestUITests.m */; };
 		BF694C302264337700B4DD58 /* TestModelA.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C2F2264337700B4DD58 /* TestModelA.m */; };
 		BF694C332264338600B4DD58 /* TestModelB.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C322264338600B4DD58 /* TestModelB.m */; };
+		BF694C3622657CDC00B4DD58 /* CpuUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C3522657CDC00B4DD58 /* CpuUsage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		BF694C2F2264337700B4DD58 /* TestModelA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestModelA.m; sourceTree = "<group>"; };
 		BF694C312264338600B4DD58 /* TestModelB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestModelB.h; sourceTree = "<group>"; };
 		BF694C322264338600B4DD58 /* TestModelB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestModelB.m; sourceTree = "<group>"; };
+		BF694C3422657CDC00B4DD58 /* CpuUsage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CpuUsage.h; sourceTree = "<group>"; };
+		BF694C3522657CDC00B4DD58 /* CpuUsage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CpuUsage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				BF694C2F2264337700B4DD58 /* TestModelA.m */,
 				BF694C312264338600B4DD58 /* TestModelB.h */,
 				BF694C322264338600B4DD58 /* TestModelB.m */,
+				BF694C3422657CDC00B4DD58 /* CpuUsage.h */,
+				BF694C3522657CDC00B4DD58 /* CpuUsage.m */,
 				BF694C022264336100B4DD58 /* Main.storyboard */,
 				BF694C052264336300B4DD58 /* Assets.xcassets */,
 				BF694C072264336300B4DD58 /* LaunchScreen.storyboard */,
@@ -272,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF694C3622657CDC00B4DD58 /* CpuUsage.m in Sources */,
 				BF694C012264336100B4DD58 /* ViewController.m in Sources */,
 				BF694C332264338600B4DD58 /* TestModelB.m in Sources */,
 				BF694C302264337700B4DD58 /* TestModelA.m in Sources */,
