@@ -10,6 +10,7 @@
 #import "TestModelA.h"
 #import "CpuUsage.h"
 #import "FPSMonitor.h"
+#import "MemoryUsage.h"
 
 @interface ViewController ()
 
@@ -58,7 +59,16 @@
     }
      */
     
+    /*
     [FPSMonitor start];
+     */
+    
+    /*
+    while (1) {
+        NSLog(@"CPU usage: %llu", [MemoryUsage memoryUsage]);
+    }
+      */
+    
 }
 
 

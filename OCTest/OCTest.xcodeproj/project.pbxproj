@@ -19,6 +19,7 @@
 		BF694C332264338600B4DD58 /* TestModelB.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C322264338600B4DD58 /* TestModelB.m */; };
 		BF694C3622657CDC00B4DD58 /* CpuUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C3522657CDC00B4DD58 /* CpuUsage.m */; };
 		BF694C392265893E00B4DD58 /* FPSMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C382265893E00B4DD58 /* FPSMonitor.m */; };
+		BF694C3C2265B3DA00B4DD58 /* MemoryUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C3B2265B3DA00B4DD58 /* MemoryUsage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		BF694C3522657CDC00B4DD58 /* CpuUsage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CpuUsage.m; sourceTree = "<group>"; };
 		BF694C372265893E00B4DD58 /* FPSMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FPSMonitor.h; sourceTree = "<group>"; };
 		BF694C382265893E00B4DD58 /* FPSMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPSMonitor.m; sourceTree = "<group>"; };
+		BF694C3A2265B3DA00B4DD58 /* MemoryUsage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryUsage.h; sourceTree = "<group>"; };
+		BF694C3B2265B3DA00B4DD58 /* MemoryUsage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryUsage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				BF694C3522657CDC00B4DD58 /* CpuUsage.m */,
 				BF694C372265893E00B4DD58 /* FPSMonitor.h */,
 				BF694C382265893E00B4DD58 /* FPSMonitor.m */,
+				BF694C3A2265B3DA00B4DD58 /* MemoryUsage.h */,
+				BF694C3B2265B3DA00B4DD58 /* MemoryUsage.m */,
 				BF694C022264336100B4DD58 /* Main.storyboard */,
 				BF694C052264336300B4DD58 /* Assets.xcassets */,
 				BF694C072264336300B4DD58 /* LaunchScreen.storyboard */,
@@ -288,6 +293,7 @@
 				BF694C392265893E00B4DD58 /* FPSMonitor.m in Sources */,
 				BF694C302264337700B4DD58 /* TestModelA.m in Sources */,
 				BF694C0C2264336300B4DD58 /* main.m in Sources */,
+				BF694C3C2265B3DA00B4DD58 /* MemoryUsage.m in Sources */,
 				BF694BFE2264336100B4DD58 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
