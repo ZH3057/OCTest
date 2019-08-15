@@ -1,0 +1,1 @@
+../../../Debugo/Debugo/Plugin/DGBase/Classes/DGBase.h

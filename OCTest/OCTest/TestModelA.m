@@ -10,4 +10,13 @@
 
 @implementation TestModelA
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        NSLog(@"TestModelA instance init");
+    }
+    return self;
+}
+
 @end

@@ -1,0 +1,61 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - Debugo (0.1.0):
+    - Debugo/Core (= 0.1.0)
+  - Debugo/Core (0.1.0):
+    - Debugo/Plugin
+  - Debugo/Plugin (0.1.0):
+    - Debugo/Plugin/DGBase (= 0.1.0)
+    - Debugo/Plugin/DGDebuggingOverlay (= 0.1.0)
+    - Debugo/Plugin/DGFileBrowser (= 0.1.0)
+    - Debugo/Plugin/DGFPSLabel (= 0.1.0)
+    - Debugo/Plugin/DGSuspensionView (= 0.1.0)
+    - Debugo/Plugin/DGTouchMonitor (= 0.1.0)
+  - Debugo/Plugin/DGBase (0.1.0)
+  - Debugo/Plugin/DGDebuggingOverlay (0.1.0)
+  - Debugo/Plugin/DGFileBrowser (0.1.0):
+    - Debugo/Plugin/DGBase
+    - FMDB
+  - Debugo/Plugin/DGFPSLabel (0.1.0)
+  - Debugo/Plugin/DGSuspensionView (0.1.0):
+    - Debugo/Plugin/DGBase
+  - Debugo/Plugin/DGTouchMonitor (0.1.0):
+    - Debugo/Plugin/DGBase
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - Masonry (1.1.0)
+  - SDWebImage (5.0.2):
+    - SDWebImage/Core (= 5.0.2)
+  - SDWebImage/Core (5.0.2)
+
+DEPENDENCIES:
+  - AFNetworking
+  - Debugo
+  - Masonry
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Debugo: 6f6e925bb5249c2d90752218afab4d06f94408d3
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
+
+PODFILE CHECKSUM: 019d4bd8683e1c10a1b98d8a9c0a62915e6beaf5
+
+COCOAPODS: 1.4.0

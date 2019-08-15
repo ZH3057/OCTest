@@ -11,6 +11,8 @@
 #import "CpuUsage.h"
 #import "FPSMonitor.h"
 #import "MemoryUsage.h"
+#import "PerformanceMonitor.h"
+#import <Masonry.h> 
 
 @interface ViewController ()
 
@@ -23,10 +25,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.modelA = [[TestModelA alloc] init];
     
     /*
      //1.这段代码为什么会奔溃 奔溃的具体原因是什么
+     
+     调用set方法会执行
+     if (_modleB != modelB) {
+        [_modelB release];
+        _modelB = [modelB retain];
+     }
+     多线程去执行[_modelB release]操作造成坏内存访问
+     
     self.modelA = [[TestModelA alloc] init];
     dispatch_queue_t concurrent_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     for (int i = 0; i < 1000; i++) {
@@ -69,6 +79,39 @@
     }
       */
     
+    /*
+    [PerformanceMonitor addOtherObserver];
+    [PerformanceMonitor addmainRunloopObserver];
+     */
+    
+    
+    /*
+    if (YES) {
+        NSLog(@"jump goto msg_hander");
+        goto msg_hander;
+    }
+    NSLog(@"after goto msg_hander");
+    
+    msg_hander:;
+     NSLog(@"do msg_hander");
+     */
+    
+    /*
+    float num1 = 0.5;
+    float num2 = 0.6;
+    if (num1 > num2) {
+        NSLog(@"num1 > num2");
+    } else {
+        NSLog(@"num1 < num2");
+    }*/
+    
+    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 44, CGRectGetWidth(self.view.bounds), 44)];
+    [self.view addSubview:slider];
+    
+    [slider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.bottom.left.right.equalTo(self.view);
+        make.height.equalTo(@44);
+    }];
 }
 
 

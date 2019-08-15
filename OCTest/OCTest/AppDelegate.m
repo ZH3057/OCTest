@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Debugo/Debugo.h>
 
 @interface AppDelegate ()
 
@@ -17,7 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+//    [DGDebugo fireWithConfiguration:^(DGConfiguration * _Nonnull configuration) {
+//        // 设置 configuration 的属性，定制你的需求
+//    }];
+    
     return YES;
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window {
+    return UIInterfaceOrientationMaskLandscapeRight;
 }
 
 
