@@ -32,8 +32,9 @@
      
      调用set方法会执行
      if (_modleB != modelB) {
+        [modelB retain];
         [_modelB release];
-        _modelB = [modelB retain];
+         _modelB = modelB;
      }
      多线程去执行[_modelB release]操作造成坏内存访问
      
@@ -105,14 +106,46 @@
         NSLog(@"num1 < num2");
     }*/
     
-    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 44, CGRectGetWidth(self.view.bounds), 44)];
-    [self.view addSubview:slider];
+//    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 44, CGRectGetWidth(self.view.bounds), 44)];
+//    [self.view addSubview:slider];
+//
+//    [slider mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.bottom.left.right.equalTo(self.view);
+//        make.height.equalTo(@44);
+//    }];
     
-    [slider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.bottom.left.right.equalTo(self.view);
-        make.height.equalTo(@44);
-    }];
+
 }
 
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+        NSLog(@"before target task invoke");
+        //dispatch_queue_t serial_queue = dispatch_queue_create("custom.test.queue", NULL);
+    //    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    //        NSLog(@"target task invoke in thread: %@", NSThread.currentThread);
+    //    });
+    //    dispatch_queue_t concurrent_queue = dispatch_queue_create("custom.test.queue", DISPATCH_QUEUE_CONCURRENT);
+    //    dispatch_async(concurrent_queue, ^{
+    //        dispatch_sync(concurrent_queue, ^{
+    //            NSLog(@"1.target task invoke in thread: %@", NSThread.currentThread);
+    //        });
+    //
+    //        dispatch_sync(concurrent_queue, ^{
+    //            NSLog(@"2.target task invoke in thread: %@", NSThread.currentThread);
+    //        });
+    //
+    //        dispatch_sync(concurrent_queue, ^{
+    //            NSLog(@"3.target task invoke in thread: %@", NSThread.currentThread);
+    //        });
+    //    });
+        
+        //dispatch_queue_t serial_queue = dispatch_queue_create("custom.test.queue", NULL);
+        dispatch_queue_t concurrent_queue = dispatch_queue_create("custom.test.queue", DISPATCH_QUEUE_CONCURRENT);
+        dispatch_apply(10, concurrent_queue, ^(size_t i) {
+            NSLog(@"target task invoke in thread: %@", NSThread.currentThread);
+        });
+        
+        NSLog(@"after target task invoke");
+}
 
 @end
