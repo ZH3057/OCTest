@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) TestModelA *modelA;
 
+@property (nonatomic, strong) NSOperationQueue *queue;
+
 @end
 
 @implementation ViewController
@@ -26,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.modelA = [[TestModelA alloc] init];
+    
+    self.queue = [[NSOperationQueue alloc] init];
     
     /*
      //1.这段代码为什么会奔溃 奔溃的具体原因是什么
@@ -119,7 +123,7 @@
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-        NSLog(@"before target task invoke");
+//        NSLog(@"before target task invoke");
         //dispatch_queue_t serial_queue = dispatch_queue_create("custom.test.queue", NULL);
     //    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     //        NSLog(@"target task invoke in thread: %@", NSThread.currentThread);
@@ -140,12 +144,26 @@
     //    });
         
         //dispatch_queue_t serial_queue = dispatch_queue_create("custom.test.queue", NULL);
-        dispatch_queue_t concurrent_queue = dispatch_queue_create("custom.test.queue", DISPATCH_QUEUE_CONCURRENT);
-        dispatch_apply(10, concurrent_queue, ^(size_t i) {
-            NSLog(@"target task invoke in thread: %@", NSThread.currentThread);
-        });
-        
-        NSLog(@"after target task invoke");
+//        dispatch_queue_t concurrent_queue = dispatch_queue_create("custom.test.queue", DISPATCH_QUEUE_CONCURRENT);
+//        dispatch_apply(10, concurrent_queue, ^(size_t i) {
+//            NSLog(@"%zu - target task invoke in thread: %@" , i, NSThread.currentThread);
+//        });
+//
+//        NSLog(@"after target task invoke");
+    
+    
+    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(invocationOperationSel) object:nil];
+    [self.queue addOperation:operation];
+    
+    NSBlockOperation *blkOperation = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"NSBlockOperation invoke in thread: %@", NSThread.currentThread);
+    }];
+    
+    [self.queue addOperation:blkOperation];
+}
+
+- (void)invocationOperationSel {
+    NSLog(@"NSInvocationOperation invoke in thread: %@", NSThread.currentThread);
 }
 
 @end
