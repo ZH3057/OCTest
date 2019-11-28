@@ -12,13 +12,22 @@
 #import "FPSMonitor.h"
 #import "MemoryUsage.h"
 #import "PerformanceMonitor.h"
-#import <Masonry.h> 
+#import <Masonry.h>
 
-@interface ViewController ()
+static NSString * const kNotificationOtherThreadPostNotification = @"kNotificationOtherThreadPostNotificationkNotificationOtherThreadPostNotification";
+
+@interface ViewController () <NSMachPortDelegate>
 
 @property (nonatomic, strong) TestModelA *modelA;
 
 @property (nonatomic, strong) NSOperationQueue *queue;
+
+@property NSMutableArray *notifications;
+@property NSThread *notificationThread;
+@property NSLock *notificationLock;
+@property NSMachPort *notificationPort;
+ 
+
 
 @end
 
@@ -118,6 +127,12 @@
 //        make.height.equalTo(@44);
 //    }];
     
+    [self setUpThreadingSupport];
+    [[NSNotificationCenter defaultCenter]
+            addObserver:self
+               selector:@selector(processNotification:)
+                   name:kNotificationOtherThreadPostNotification
+                 object:nil];
 
 }
 
@@ -152,18 +167,68 @@
 //        NSLog(@"after target task invoke");
     
     
-    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(invocationOperationSel) object:nil];
-    [self.queue addOperation:operation];
+//    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(invocationOperationSel) object:nil];
+//    [self.queue addOperation:operation];
+//
+//    NSBlockOperation *blkOperation = [NSBlockOperation blockOperationWithBlock:^{
+//        NSLog(@"NSBlockOperation invoke in thread: %@", NSThread.currentThread);
+//    }];
+//
+//    [self.queue addOperation:blkOperation];
     
-    NSBlockOperation *blkOperation = [NSBlockOperation blockOperationWithBlock:^{
-        NSLog(@"NSBlockOperation invoke in thread: %@", NSThread.currentThread);
-    }];
-    
-    [self.queue addOperation:blkOperation];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [NSNotificationCenter.defaultCenter postNotificationName:kNotificationOtherThreadPostNotification object:nil userInfo:@{@"name" :kNotificationOtherThreadPostNotification }];
+    });
 }
 
 - (void)invocationOperationSel {
     NSLog(@"NSInvocationOperation invoke in thread: %@", NSThread.currentThread);
+}
+
+- (void)setUpThreadingSupport {
+    if (self.notifications) {
+           return;
+       }
+       self.notifications      = [[NSMutableArray alloc] init];
+       self.notificationLock   = [[NSLock alloc] init];
+       self.notificationThread = [NSThread currentThread];
+
+       self.notificationPort = [[NSMachPort alloc] init];
+       [self.notificationPort setDelegate:self];
+       [[NSRunLoop currentRunLoop] addPort:self.notificationPort forMode:NSRunLoopCommonModes];
+}
+- (void)handleMachMessage:(void *)msg {
+    [self.notificationLock lock];
+    
+       while ([self.notifications count]) {
+           NSNotification *notification = [self.notifications objectAtIndex:0];
+           [self.notifications removeObjectAtIndex:0];
+           [self.notificationLock unlock];
+           [self processNotification:notification];
+           [self.notificationLock lock];
+       };
+    
+       [self.notificationLock unlock];
+}
+- (void)processNotification:(NSNotification *)notification {
+    if ([NSThread currentThread] != self.notificationThread) {
+        // Forward the notification to the correct thread.
+        [self.notificationLock lock];
+        [self.notifications addObject:notification];
+        [self.notificationLock unlock];
+        [self.notificationPort sendBeforeDate:[NSDate date]
+                components:nil
+                from:nil
+                reserved:0];
+    }
+    else {
+        // Process the notification here;
+        NSLog(@"notification: %@",notification.userInfo);
+    }
+}
+
+- (void)dealloc {
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 @end
