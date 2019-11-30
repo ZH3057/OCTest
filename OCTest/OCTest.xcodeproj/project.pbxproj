@@ -23,6 +23,7 @@
 		BF694C392265893E00B4DD58 /* FPSMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C382265893E00B4DD58 /* FPSMonitor.m */; };
 		BF694C3C2265B3DA00B4DD58 /* MemoryUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C3B2265B3DA00B4DD58 /* MemoryUsage.m */; };
 		BF694C3F2265D7F300B4DD58 /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C3E2265D7F300B4DD58 /* PerformanceMonitor.m */; };
+		BF7AC79323925772001D372C /* EOCAutoDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7AC79223925772001D372C /* EOCAutoDictionary.m */; };
 		BFD3F68C237E802200E949A1 /* CustomConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD3F68B237E802200E949A1 /* CustomConcurrentOperation.m */; };
 		F8077B79441681293505E57E /* libPods-OCTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7213667AFA1EE484506BD788 /* libPods-OCTestTests.a */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,8 @@
 		BF694C3B2265B3DA00B4DD58 /* MemoryUsage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryUsage.m; sourceTree = "<group>"; };
 		BF694C3D2265D7F300B4DD58 /* PerformanceMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceMonitor.h; sourceTree = "<group>"; };
 		BF694C3E2265D7F300B4DD58 /* PerformanceMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceMonitor.m; sourceTree = "<group>"; };
+		BF7AC79123925772001D372C /* EOCAutoDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EOCAutoDictionary.h; sourceTree = "<group>"; };
+		BF7AC79223925772001D372C /* EOCAutoDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCAutoDictionary.m; sourceTree = "<group>"; };
 		BFD3F68A237E802200E949A1 /* CustomConcurrentOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomConcurrentOperation.h; sourceTree = "<group>"; };
 		BFD3F68B237E802200E949A1 /* CustomConcurrentOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomConcurrentOperation.m; sourceTree = "<group>"; };
 		D256D6C34F15DCC5DF5A75C5 /* Pods-OCTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCTest/Pods-OCTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				BF694C3E2265D7F300B4DD58 /* PerformanceMonitor.m */,
 				BFD3F68A237E802200E949A1 /* CustomConcurrentOperation.h */,
 				BFD3F68B237E802200E949A1 /* CustomConcurrentOperation.m */,
+				BF7AC79123925772001D372C /* EOCAutoDictionary.h */,
+				BF7AC79223925772001D372C /* EOCAutoDictionary.m */,
 				BF694C022264336100B4DD58 /* Main.storyboard */,
 				BF694C052264336300B4DD58 /* Assets.xcassets */,
 				BF694C072264336300B4DD58 /* LaunchScreen.storyboard */,
@@ -542,6 +547,7 @@
 				BFD3F68C237E802200E949A1 /* CustomConcurrentOperation.m in Sources */,
 				BF694C3C2265B3DA00B4DD58 /* MemoryUsage.m in Sources */,
 				BF694BFE2264336100B4DD58 /* AppDelegate.m in Sources */,
+				BF7AC79323925772001D372C /* EOCAutoDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
