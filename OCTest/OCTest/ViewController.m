@@ -13,6 +13,7 @@
 #import "MemoryUsage.h"
 #import "PerformanceMonitor.h"
 #import <Masonry.h>
+#import <objc/runtime.h>
 
 static NSString * const kNotificationOtherThreadPostNotification = @"kNotificationOtherThreadPostNotificationkNotificationOtherThreadPostNotification";
 
@@ -176,9 +177,11 @@ static NSString * const kNotificationOtherThreadPostNotification = @"kNotificati
 //
 //    [self.queue addOperation:blkOperation];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [NSNotificationCenter.defaultCenter postNotificationName:kNotificationOtherThreadPostNotification object:nil userInfo:@{@"name" :kNotificationOtherThreadPostNotification }];
-    });
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        [NSNotificationCenter.defaultCenter postNotificationName:kNotificationOtherThreadPostNotification object:nil userInfo:@{@"name" :kNotificationOtherThreadPostNotification }];
+//    });
+    //[self.modelA msgForwardingInstanceTest];
+    [TestModelA msgForwardingClassTest];
 }
 
 - (void)invocationOperationSel {
@@ -229,6 +232,22 @@ static NSString * const kNotificationOtherThreadPostNotification = @"kNotificati
 
 - (void)dealloc {
     [NSNotificationCenter.defaultCenter removeObserver:self];
+}
+
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    return [super resolveInstanceMethod:sel];
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    NSLog(@"target: %@, selector: %@", anInvocation.target, NSStringFromSelector(anInvocation.selector));
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    return nil;
+}
+
+- (void)doesNotRecognizeSelector:(SEL)aSelector {
+    
 }
 
 @end

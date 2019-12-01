@@ -1,27 +1,15 @@
 //
-//  TestModelA.m
+//  NSObject+MsgForwarding.m
 //  OCTest
 //
-//  Created by Jun Zhou on 2019/4/15.
+//  Created by Jun Zhou on 2019/11/30.
 //  Copyright © 2019 Jun Zhou. All rights reserved.
 //
 
-#import "TestModelA.h"
+#import "NSObject+MsgForwarding.h"
+#import <objc/runtime.h>
 
-@implementation TestModelA
-
-- (void)test {
-    
-}
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        NSLog(@"TestModelA instance init");
-    }
-    return self;
-}
+@implementation NSObject (MsgForwarding)
 
 + (BOOL)resolveInstanceMethod:(SEL)sel {
     return NO;
