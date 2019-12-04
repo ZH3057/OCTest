@@ -58,7 +58,8 @@
 }
 
 + (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    return [NSMethodSignature signatureWithObjCTypes:"v@:"];
+    //return [NSMethodSignature signatureWithObjCTypes:"v@:"];
+    return nil;
 }
 
 + (void)forwardInvocation:(NSInvocation *)anInvocation {

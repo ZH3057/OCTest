@@ -15,6 +15,42 @@
 
 @implementation AppDelegate
 
+void UncaughtExceptionHandler(NSException *exception) {
+    /**
+     *  获取异常崩溃信息
+     */
+    NSArray *callStack = [exception callStackSymbols];
+    NSString *reason = [exception reason];
+    NSString *name = [exception name];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSString * dateStr = [formatter stringFromDate:[NSDate date]];
+    
+    NSString * userID   =   @"";
+    NSString * userName =   @"";
+    
+    NSString * iOS_Version = [[UIDevice currentDevice] systemVersion];
+    NSString * PhoneSize    =   NSStringFromCGSize([[UIScreen mainScreen] bounds].size);
+    
+    NSString * App_Version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString * iPhoneType = @"";
+    
+    NSString *content = [NSString stringWithFormat:@"%@<br>\niOS_Version : %@----PhoneSize : %@<br>\n----iPhoneType: %@<br>\nApp_Version : %@<br>\nuserID : %@<br>\nuserName : %@<br>\nname:%@<br>\nreason:\n%@<br>\ncallStackSymbols:\n%@",dateStr,iOS_Version,PhoneSize,iPhoneType,App_Version,userID,userName,name,reason,[callStack componentsJoinedByString:@"\n"]];
+    
+#if DEBUG
+    NSDictionary * dictionary   =   @{@"content":content,
+                                      @"isDebug":@(1),
+                                      @"packageName":@"com.thinkjoy.NetworkTaxiDriver"};
+#else
+    NSDictionary * dictionary   =   @{@"content":content,
+                                      @"isDebug":@(0),
+                                      @"packageName":@"com.thinkjoy.NetworkTaxiDriver"};
+#endif
+    
+    NSLog(@"Exception info: %@", dictionary);
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -22,6 +58,8 @@
 //    [DGDebugo fireWithConfiguration:^(DGConfiguration * _Nonnull configuration) {
 //        // 设置 configuration 的属性，定制你的需求
 //    }];
+    
+    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
     
     return YES;
 }

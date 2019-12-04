@@ -181,7 +181,10 @@ static NSString * const kNotificationOtherThreadPostNotification = @"kNotificati
 //        [NSNotificationCenter.defaultCenter postNotificationName:kNotificationOtherThreadPostNotification object:nil userInfo:@{@"name" :kNotificationOtherThreadPostNotification }];
 //    });
     //[self.modelA msgForwardingInstanceTest];
-    [TestModelA msgForwardingClassTest];
+    //[TestModelA msgForwardingClassTest];
+    NSObject *obj = nil;
+    NSMutableArray *array = NSMutableArray.array;
+    [array addObject:obj];
 }
 
 - (void)invocationOperationSel {
