@@ -14,6 +14,7 @@
 #import "PerformanceMonitor.h"
 #import <Masonry.h>
 #import <objc/runtime.h>
+#import "BankAccount.h"
 
 static NSString * const kNotificationOtherThreadPostNotification = @"kNotificationOtherThreadPostNotificationkNotificationOtherThreadPostNotification";
 
@@ -37,9 +38,9 @@ static NSString * const kNotificationOtherThreadPostNotification = @"kNotificati
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.modelA = [[TestModelA alloc] init];
+    //self.modelA = [[TestModelA alloc] init];
     
-    self.queue = [[NSOperationQueue alloc] init];
+    //self.queue = [[NSOperationQueue alloc] init];
     
     /*
      //1.这段代码为什么会奔溃 奔溃的具体原因是什么
@@ -128,13 +129,57 @@ static NSString * const kNotificationOtherThreadPostNotification = @"kNotificati
 //        make.height.equalTo(@44);
 //    }];
     
-    [self setUpThreadingSupport];
-    [[NSNotificationCenter defaultCenter]
-            addObserver:self
-               selector:@selector(processNotification:)
-                   name:kNotificationOtherThreadPostNotification
-                 object:nil];
+//    [self setUpThreadingSupport];
+//    [[NSNotificationCenter defaultCenter]
+//            addObserver:self
+//               selector:@selector(processNotification:)
+//                   name:kNotificationOtherThreadPostNotification
+//                 object:nil];
+    
+    BankAccount *account = [[BankAccount alloc] init];
+    
+    // @avg
+    NSNumber *transactionAverage = [account.transactions valueForKeyPath:@"@avg.amount"];
+    NSLog(@"transactionAverage = %@", transactionAverage);
+    // transactionAverage = 456.54
+    
+    // @count
+    NSNumber *numberOfTransactions = [account.transactions valueForKeyPath:@"@count"];
+    NSLog(@"numberOfTransactions = %@", numberOfTransactions);
+    // numberOfTransactions = 13
 
+    // @max
+    NSDate *latestDate = [account.transactions valueForKeyPath:@"@max.date"];
+    NSLog(@"latestDate = %@", latestDate);
+    // latestDate = Jul 15, 2016
+    
+    // @min
+    NSDate *earliestDate = [account.transactions valueForKeyPath:@"@min.date"];
+    NSLog(@"earliestDate = %@", earliestDate);
+    // earliestDate = Dec 1, 2015
+    
+    // @sum
+    NSNumber *amountSum = [account.transactions valueForKeyPath:@"@sum.amount"];
+    NSLog(@"amountSum = %@", amountSum);
+    // amountSum = 5,935.00
+    
+    // @distinctUnionOfObjects
+    NSArray *distinctPayees = [account.transactions valueForKeyPath:@"@distinctUnionOfObjects.payee"];
+    NSLog(@"distinctPayees = %@", distinctPayees);
+    // Car Loan, General Cable, Animal Hospital, Green Power, Mortgage.
+    
+    // @unionOfObjects
+    NSArray *payees = [account.transactions valueForKeyPath:@"@unionOfObjects.payee"];
+    NSLog(@"payees = %@", payees);
+    // Green Power, Green Power, Green Power, Car Loan, Car Loan, Car Loan, General Cable,
+    // General Cable, General Cable, Mortgage, Mortgage, Mortgage, Animal Hospital.
+    
+    NSNumber *currentBalance = [account valueForKey:@"currentBalance"];
+    NSLog(@"currentBalance = %@", currentBalance);
+    
+    
+    NSLog(@"account count = %@", [account valueForKey:@"count"]);
+    
 }
 
 
@@ -182,9 +227,9 @@ static NSString * const kNotificationOtherThreadPostNotification = @"kNotificati
 //    });
     //[self.modelA msgForwardingInstanceTest];
     //[TestModelA msgForwardingClassTest];
-    NSObject *obj = nil;
-    NSMutableArray *array = NSMutableArray.array;
-    [array addObject:obj];
+//    NSObject *obj = nil;
+//    NSMutableArray *array = NSMutableArray.array;
+//    [array addObject:obj];
 }
 
 - (void)invocationOperationSel {

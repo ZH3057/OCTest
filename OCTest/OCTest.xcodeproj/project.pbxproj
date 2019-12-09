@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		623CBD977D0C097165A9452B /* libPods-OCTestUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 307C7A1326BB765E91A3F404 /* libPods-OCTestUITests.a */; };
 		7824B6C3EF77CDC1CEDAC7DF /* libPods-OCTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D39C2A3A0B751896865E97A1 /* libPods-OCTest.a */; };
+		BF07F544239E50EA006AB813 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = BF07F543239E50EA006AB813 /* Transaction.m */; };
+		BF07F547239E5191006AB813 /* BankAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BF07F546239E5191006AB813 /* BankAccount.m */; };
 		BF694BFE2264336100B4DD58 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694BFD2264336100B4DD58 /* AppDelegate.m */; };
 		BF694C012264336100B4DD58 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C002264336100B4DD58 /* ViewController.m */; };
 		BF694C042264336100B4DD58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF694C022264336100B4DD58 /* Main.storyboard */; };
@@ -54,6 +56,10 @@
 		777A89AFB48AADED77A85B59 /* Pods-OCTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCTestTests/Pods-OCTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E5CB8A6D922B4EA6BE97D57 /* Pods-OCTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCTestUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCTestUITests/Pods-OCTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A6BF756FEFE245BB12FF3752 /* Pods-OCTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCTestUITests/Pods-OCTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BF07F542239E50EA006AB813 /* Transaction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
+		BF07F543239E50EA006AB813 /* Transaction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
+		BF07F545239E5191006AB813 /* BankAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankAccount.h; sourceTree = "<group>"; };
+		BF07F546239E5191006AB813 /* BankAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankAccount.m; sourceTree = "<group>"; };
 		BF694BF92264336100B4DD58 /* OCTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF694BFC2264336100B4DD58 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF694BFD2264336100B4DD58 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -180,6 +186,10 @@
 				BF7AC79223925772001D372C /* EOCAutoDictionary.m */,
 				BF7AC79423926B33001D372C /* NSObject+MsgForwarding.h */,
 				BF7AC79523926B33001D372C /* NSObject+MsgForwarding.m */,
+				BF07F542239E50EA006AB813 /* Transaction.h */,
+				BF07F543239E50EA006AB813 /* Transaction.m */,
+				BF07F545239E5191006AB813 /* BankAccount.h */,
+				BF07F546239E5191006AB813 /* BankAccount.m */,
 				BF694C022264336100B4DD58 /* Main.storyboard */,
 				BF694C052264336300B4DD58 /* Assets.xcassets */,
 				BF694C072264336300B4DD58 /* LaunchScreen.storyboard */,
@@ -228,7 +238,6 @@
 				BF694BF52264336100B4DD58 /* Sources */,
 				BF694BF62264336100B4DD58 /* Frameworks */,
 				BF694BF72264336100B4DD58 /* Resources */,
-				C3DB08B1ADE55E6933F2361B /* [CP] Embed Pods Frameworks */,
 				EBFC7E96718C855EE0C10B4B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -248,8 +257,6 @@
 				BF694C0D2264336300B4DD58 /* Sources */,
 				BF694C0E2264336300B4DD58 /* Frameworks */,
 				BF694C0F2264336300B4DD58 /* Resources */,
-				E4A60ED1F1F4E26A16AB9D0E /* [CP] Embed Pods Frameworks */,
-				E950C8FC6A0F6053FD98ABE7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -269,8 +276,6 @@
 				BF694C182264336300B4DD58 /* Sources */,
 				BF694C192264336300B4DD58 /* Frameworks */,
 				BF694C1A2264336300B4DD58 /* Resources */,
-				779C2336BAE811070120346D /* [CP] Embed Pods Frameworks */,
-				887774241A41C5194310A99F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -374,44 +379,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		779C2336BAE811070120346D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCTestUITests/Pods-OCTestUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		887774241A41C5194310A99F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCTestUITests/Pods-OCTestUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		961C5DCFEF9981CA99C7D347 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -432,44 +399,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C3DB08B1ADE55E6933F2361B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCTest/Pods-OCTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E4A60ED1F1F4E26A16AB9D0E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCTestTests/Pods-OCTestTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E4DA2AD1088AF5BABEC591ED /* [CP] Check Pods Manifest.lock */ = {
@@ -494,45 +423,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E950C8FC6A0F6053FD98ABE7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCTestTests/Pods-OCTestTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EBFC7E96718C855EE0C10B4B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-OCTest/Pods-OCTest-resources.sh",
-				"${PODS_ROOT}/Debugo/Debugo/Plugin/DGBase/Assets/Debugo.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-OCTest/Pods-OCTest-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Debugo.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-OCTest/Pods-OCTest-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCTest/Pods-OCTest-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OCTest/Pods-OCTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -544,10 +449,12 @@
 			files = (
 				BF7AC79623926B33001D372C /* NSObject+MsgForwarding.m in Sources */,
 				BF694C3622657CDC00B4DD58 /* CpuUsage.m in Sources */,
+				BF07F544239E50EA006AB813 /* Transaction.m in Sources */,
 				BF694C012264336100B4DD58 /* ViewController.m in Sources */,
 				BF694C332264338600B4DD58 /* TestModelB.m in Sources */,
 				BF694C392265893E00B4DD58 /* FPSMonitor.m in Sources */,
 				BF694C302264337700B4DD58 /* TestModelA.m in Sources */,
+				BF07F547239E5191006AB813 /* BankAccount.m in Sources */,
 				BF694C0C2264336300B4DD58 /* main.m in Sources */,
 				BF694C3F2265D7F300B4DD58 /* PerformanceMonitor.m in Sources */,
 				BFD3F68C237E802200E949A1 /* CustomConcurrentOperation.m in Sources */,

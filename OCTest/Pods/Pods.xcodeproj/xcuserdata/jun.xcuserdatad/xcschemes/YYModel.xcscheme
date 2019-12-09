@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E7DBBF21BC946118A011AB33A656F2B5"
-               BuildableName = "libDebugo.a"
-               BlueprintName = "Debugo"
+               BlueprintIdentifier = "84B44807A12996D487A4A591A481D6A0"
+               BuildableName = "libYYModel.a"
+               BlueprintName = "YYModel"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

@@ -1,4 +1,5 @@
 # Uncomment the next line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
 
 target 'OCTest' do
@@ -11,6 +12,7 @@ target 'OCTest' do
 	pod 'SDWebImage'
 	pod 'AFNetworking'
     pod 'Debugo'
+    pod 'YYModel'
 
   target 'OCTestTests' do
     inherit! :search_paths
