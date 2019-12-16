@@ -16,6 +16,9 @@
 #import <objc/runtime.h>
 #import "BankAccount.h"
 
+#import "UIResponder+Chain.h"
+#import "ResponseChainTestView.h"
+
 static NSString * const kNotificationOtherThreadPostNotification = @"kNotificationOtherThreadPostNotificationkNotificationOtherThreadPostNotification";
 
 @interface ViewController () <NSMachPortDelegate>
@@ -178,8 +181,11 @@ static NSString * const kNotificationOtherThreadPostNotification = @"kNotificati
     NSLog(@"currentBalance = %@", currentBalance);
     
     
-    NSLog(@"account count = %@", [account valueForKey:@"count"]);
+    //NSLog(@"account count = %@", [account valueForKey:@"count"]);
     
+    ResponseChainTestView *testView = [[ResponseChainTestView alloc] initWithFrame:CGRectMake(80, 100, 160, 140)];
+    testView.backgroundColor = UIColor.blackColor;
+    [self.view addSubview:testView];
 }
 
 
@@ -296,6 +302,11 @@ static NSString * const kNotificationOtherThreadPostNotification = @"kNotificati
 
 - (void)doesNotRecognizeSelector:(SEL)aSelector {
     
+}
+
+- (void)routerEventWithName:(NSString *)eventName userInfo:(NSDictionary *)userInfo {
+    NSLog(@"ViewController eventName: %@", eventName);
+    [super routerEventWithName:eventName userInfo:userInfo];
 }
 
 @end
