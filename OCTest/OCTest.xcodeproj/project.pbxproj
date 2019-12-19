@@ -27,6 +27,7 @@
 		BF694C3F2265D7F300B4DD58 /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = BF694C3E2265D7F300B4DD58 /* PerformanceMonitor.m */; };
 		BF7AC79323925772001D372C /* EOCAutoDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7AC79223925772001D372C /* EOCAutoDictionary.m */; };
 		BF7AC79623926B33001D372C /* NSObject+MsgForwarding.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7AC79523926B33001D372C /* NSObject+MsgForwarding.m */; };
+		BF7BB45523AB26CE00B34D1C /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7BB45423AB26CE00B34D1C /* UIView+Category.m */; };
 		BF9B338C23A737AF0075FDDF /* UIResponder+Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9B338B23A737AF0075FDDF /* UIResponder+Chain.m */; };
 		BF9B338F23A738B50075FDDF /* ResponseChainTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9B338E23A738B50075FDDF /* ResponseChainTestView.m */; };
 		BFD3F68C237E802200E949A1 /* CustomConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD3F68B237E802200E949A1 /* CustomConcurrentOperation.m */; };
@@ -94,6 +95,8 @@
 		BF7AC79223925772001D372C /* EOCAutoDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EOCAutoDictionary.m; sourceTree = "<group>"; };
 		BF7AC79423926B33001D372C /* NSObject+MsgForwarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+MsgForwarding.h"; sourceTree = "<group>"; };
 		BF7AC79523926B33001D372C /* NSObject+MsgForwarding.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MsgForwarding.m"; sourceTree = "<group>"; };
+		BF7BB45323AB26CE00B34D1C /* UIView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Category.h"; sourceTree = "<group>"; };
+		BF7BB45423AB26CE00B34D1C /* UIView+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Category.m"; sourceTree = "<group>"; };
 		BF9B338A23A737AF0075FDDF /* UIResponder+Chain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Chain.h"; sourceTree = "<group>"; };
 		BF9B338B23A737AF0075FDDF /* UIResponder+Chain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Chain.m"; sourceTree = "<group>"; };
 		BF9B338D23A738B50075FDDF /* ResponseChainTestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResponseChainTestView.h; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				BF9B338B23A737AF0075FDDF /* UIResponder+Chain.m */,
 				BF9B338D23A738B50075FDDF /* ResponseChainTestView.h */,
 				BF9B338E23A738B50075FDDF /* ResponseChainTestView.m */,
+				BF7BB45323AB26CE00B34D1C /* UIView+Category.h */,
+				BF7BB45423AB26CE00B34D1C /* UIView+Category.m */,
 				BF694C022264336100B4DD58 /* Main.storyboard */,
 				BF694C052264336300B4DD58 /* Assets.xcassets */,
 				BF694C072264336300B4DD58 /* LaunchScreen.storyboard */,
@@ -457,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF7BB45523AB26CE00B34D1C /* UIView+Category.m in Sources */,
 				BF7AC79623926B33001D372C /* NSObject+MsgForwarding.m in Sources */,
 				BF694C3622657CDC00B4DD58 /* CpuUsage.m in Sources */,
 				BF07F544239E50EA006AB813 /* Transaction.m in Sources */,
